@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<!-- <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+
+     <h1 class=" flex items-center justify-center text-2xl mb-6">hello world</h1>
+   <div class="space-y-4">
+        {% for muallif in mualliflar %}
+            <div class="flex items-center gap-1">
+                <p class="text-gray-500">muallif: </p>
+                <a href="details/{{muallif.id}}" class="text-gray-700">{{muallif.name }}</a>
+            </div>
+        {% endfor %} 
+   </div>
+    </div>
+</body> -->
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+<div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md space-y-4">
+
+    <h1 class="text-2xl text-center font-semibold">Maʼlumotlar</h1>
+
+        <h2 class="text-xl font-medium">Mualliflar</h2>
+        {% for muallif in mualliflar %}
+            <div class="flex gap-2">
+                <span>Muallif:</span>
+                <a href="/details/{{ muallif.id }}/" class="text-blue-600">
+                    {{ muallif.name }}
+                </a>
+            </div>
+        {% endfor %}
+    <div class="flex items-center gap-5">
+        <a href="/kitoblar/" class="block text-center text-gray-600 mt-4">Kitoblar</a>
+    <a href="/record/" class="block text-center text-gray-600 mt-4">Record</a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -11,6 +11,7 @@ class Talaba(models.Model):
 
 class Muallif(models.Model):
     name=models.CharField(max_length=50)
+    age=models.BigIntegerField()
     jins=models.CharField(
         choices=[
             ('Erkak','Erkak'),

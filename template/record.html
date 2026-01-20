@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex justify-center items-center">
+
+<div class="bg-white p-6 rounded-xl shadow w-full max-w-md">
+    <h1 class="text-2xl text-center mb-4">Record</h1>
+
+    {% for a in record %}
+    <p>
+        <a href="/kitob/{{ kitob.id }}" class="text-black">
+           Talaba: <span class="text-blue-500"> {{ a.talaba }}</span>
+        </a>
+    </p>
+    {% endfor %}
+    <div class="mt-8 flex justify-between">
+            <a href="/"
+               class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 transition">
+                Mualliflar
+            </a>
+            <a href="/kitoblar"
+               class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 transition">
+                Kitob
+            </a>
+        </div>
+</div>
+</body>
+</html>

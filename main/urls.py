@@ -16,7 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Kutubxona.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/',admin.site.urls),
+    path('', home, name='home'),
+    path('details/<int:id>/', details, name='muallif_details'),
+    # path('tirik-mualliflar/', tirik_mualliflar, name='tirik_mualliflar'),
+    # path('top-mualliflar/', top_mualliflar, name='top_mualliflar'),
+    # path('katta-mualliflar/', katta_mualliflar, name='katta_mualliflar'),
+
+    path('kitoblar/', kitoblar, name='kitoblar'),
+    path('kitob/<int:id>/', kitob, name='kitob_details'),
+    path('record/',record),
+    path('talaba/',talaba),
 ]
