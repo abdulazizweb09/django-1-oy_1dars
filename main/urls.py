@@ -30,4 +30,5 @@ urlpatterns = [
     path('kitob/<int:id>/', kitob, name='kitob_details'),
     path('record/',record),
     path('talaba/',talaba),
+    path('qoshish/<str:type>/',qoshish)
 ]

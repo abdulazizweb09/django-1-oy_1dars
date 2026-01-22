@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post">
+    <!-- <form method="post">
+        {%csrf_token%}
         <label for="name">name</label>
         <input type="text" placeholder="name" id="name" name="name">
         <br>
@@ -16,8 +17,8 @@
         <label for="jins">jins</label>
         <input type="text" placeholder="jins" id="jins" name="jins">
 
-        <label for="age">age</label>
-        <input type="text" placeholder="age" id="age" name="age">
+        <label for="quantity">quantity</label>
+        <input type="text" placeholder="quantity" id="quantity" name="quantity">
 
         <label for="deta">deta</label>
         <input type="text" placeholder="deta" id="deta" name="deta">
@@ -26,6 +27,9 @@
         <input type="text" placeholder="tric" id="deta" name="tric">
 
         <button>qoshish</button>
-    </form>
+    </form> -->
+    {% for t in talaba %}
+        <p>{{t.name}}</p>
+    {% endfor %}
 </body>
 </html>

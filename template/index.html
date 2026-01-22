@@ -26,7 +26,10 @@
 
     <h1 class="text-2xl text-center font-semibold">Maʼlumotlar</h1>
 
-        <h2 class="text-xl font-medium">Mualliflar</h2>
+        <div class="flex items-center justify-between">
+            <h2 class="text-xl font-medium">Mualliflar</h2>
+            <a href="/qoshish/muallif" class="cursor-pointer">Muallif qo`shish</a>
+        </div>
         {% for muallif in mualliflar %}
             <div class="flex gap-2">
                 <span>Muallif:</span>
@@ -37,7 +40,8 @@
         {% endfor %}
     <div class="flex items-center gap-5">
         <a href="/kitoblar/" class="block text-center text-gray-600 mt-4">Kitoblar</a>
-    <a href="/record/" class="block text-center text-gray-600 mt-4">Record</a>
+        <a href="/record/" class="block text-center text-gray-600 mt-4">Record</a>
+        <a href="/talaba/" class="block text-center text-gray-600 mt-4">Talaba</a>
     </div>
 
 </div>

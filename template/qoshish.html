@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    {% if type == "muallif" %}
+
+    <form method="POST" class="max-w-sm mx-auto space-y-4">
+        {% csrf_token %}
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Muallif nomini kiriting</label
+        >
+        <input
+          name="name"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Muallif yoshini kiriting</label
+        >
+        <input
+          name="age"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <!-- <div>
+        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Muallif jinsini kiriting</label>
+        <input name="jins" type="text" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" required />
+    </div> -->
+      <select name="jins" id="">
+        <option value="Erkak">Erkak</option>
+        <option value="Ayol">Ayol</option>
+      </select>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Muallif miqdorini kiriting</label
+        >
+        <input
+          name="quant"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Muallif tricmi
+        </label>
+        <input
+          name="tric"
+          type="checkbox"
+          id="visitors"
+          required
+        />
+      </div>
+      <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form>
+
+    {% endif %}
+
+    {% if type == "kitob" %}
+
+    <form method="POST" class="max-w-sm mx-auto space-y-4">
+        {% csrf_token %}
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >kitob nomini kiriting</label
+        >
+        <input
+          name="name"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Kitob janr kiriting</label
+        >
+        <input
+          name="janr"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Kitob sahifasini kiriting</label>
+        <input name="sahifa" type="text" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" required />
+    </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Muallif ni tanlang
+        </label>
+       <select name="muallif" id="">
+        {% for m in muallif %}
+        <option value="Erkak">Erkak</option>
+        {% endfor %}
+    </select>
+      </div>
+      <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form>
+
+    {% endif %}
+  </body>
+</html>

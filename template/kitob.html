@@ -11,6 +11,9 @@
 <div class="bg-white p-6 rounded-xl shadow w-full max-w-md">
     <h1 class="text-2xl text-center mb-4">Kitoblar</h1>
 
+    <div>
+        <a href="/qoshish/kitob/" class="border">Kitob qoshish</a>
+    </div>
     {% for kitob in kitoblar %}
     <p>
         <a href="/kitob/{{ kitob.id }}" class="text-black">
@@ -23,9 +26,13 @@
                class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 transition">
                 Mualliflar
             </a>
-            <a href="/"
+            <a href="/talaba"
                class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 transition">
-                Mualliflar
+                Talaba
+            </a>
+            <a href="/record"
+               class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 transition">
+                Record
             </a>
         </div>
 </div>

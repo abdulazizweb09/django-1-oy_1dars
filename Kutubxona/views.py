@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 # Create your views here.
 def home(request):
@@ -45,9 +45,60 @@ def record(request):
     return render(request,'record.html',context)
 
 def talaba(request):
+    if request=='POST':
+        Talaba.objects.create(
+            name=request.POST.get('name'),
+            age=request.POST.get('age'),
+            jins=request.POST.get('jins'),
+            deta=request.POST.get('deta'),
+            quantity=request.POST.get('quantity'),
+            tric=request.POST.get('tric')
+        )
     talaba=Talaba.objects.all()
     context={
         'talaba':talaba
     }
 
     return render(request,'talaba.html',context)
+
+def qoshish(request,type):
+    # form
+   
+    if type == 'muallif' and request.method=='POST':
+        tric=False
+        if request.POST.get('tric')=='on':
+            tric=True
+        else:
+            tric=False
+        Muallif.objects.create(
+            name=request.POST.get('name'),
+            age=request.POST.get('age'),
+            jins=request.POST.get('jins'),
+            quantity=request.POST.get('quant'),
+            tric=tric,
+        )
+    elif type == 'talaba' and request.method=='POST':
+        Talaba.objects.create(
+            name=request.POST.get('name'),
+            janr=request.POST.get('janr'),
+            sahifa=request.POST.get('sahifa'),
+            janr=request.POST.get('janr'),
+            janr=request.POST.get('janr'),
+            janr=request.POST.get('janr'),
+
+        )
+        
+        
+        # FormClass = BookForm
+        # pass
+    elif type == 'record':
+        FormClass = RecordForm
+        pass
+    # else:
+        # return redirect('/')
+
+    # if request=='POST':
+    context={
+        'type':type
+    }
+    return render(request,'qoshish.html',context)
