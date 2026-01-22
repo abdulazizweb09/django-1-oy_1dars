@@ -82,11 +82,9 @@ def qoshish(request,type):
             name=request.POST.get('name'),
             janr=request.POST.get('janr'),
             sahifa=request.POST.get('sahifa'),
-            janr=request.POST.get('janr'),
-            janr=request.POST.get('janr'),
-            janr=request.POST.get('janr'),
-
+            muallif=request.POST.get('muallif'),
         )
+        redirect('/kitob')
         
         
         # FormClass = BookForm
@@ -99,6 +97,7 @@ def qoshish(request,type):
 
     # if request=='POST':
     context={
-        'type':type
+        'type':type,
+        'muallif':Muallif.objects.all()
     }
     return render(request,'qoshish.html',context)
