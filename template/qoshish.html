@@ -33,7 +33,7 @@
         >
         <input
           name="age"
-          type="text"
+          type="number"
           id="visitors"
           class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
           required
@@ -55,7 +55,7 @@
         >
         <input
           name="quant"
-          type="text"
+          type="number"
           id="visitors"
           class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
           required
@@ -126,6 +126,135 @@
         <option value="{{m.name}}">{{m.name}}</option>
         {% endfor %}
     </select>
+      </div>
+      <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form>
+
+    {% endif %}
+
+    {% if type == "talaba" %}
+
+    <form method="POST" class="max-w-sm mx-auto space-y-4">
+        {% csrf_token %}
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >talaba nomini kiriting</label
+        >
+        <input
+          name="name"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >talaba guruhini kiriting</label
+        >
+        <input
+          name="guruh"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">talaba kursini kiriting</label>
+        <input name="kurs" type="text" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" required />
+    </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >kitoblar miqdorini kiriting
+        </label>
+        <input type="number" name="quantity" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" required placeholder="miqdorini kiriting">
+      </div>
+      <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form>
+
+    {% endif %}
+
+
+    {% if type == "record" %}
+
+    <form method="POST" class="max-w-sm mx-auto space-y-4">
+        {% csrf_token %}
+      <select name="talaba" id="talaba">
+        {% for t in talaba %}
+         <option value="{{t.id}}">{{t}}</option>
+         {% endfor %}
+      </select>
+      <select name="kitob" id="">
+        {% for k in kitob %}
+         <option value="{{k.id}}">{{k}}</option>
+         {% endfor %}
+      </select>
+      <select name="admin" id="">
+        {% for a in admin %}
+         <option value="{{a.id}}">{{a}}</option>
+         {% endfor %}
+      </select>
+         <input type="date" placeholder="olingan sanani kiriting" name="olingan_sana">
+         <input type="date" placeholder="qaytarilgan sanani kiriting" name="qaytarish_sana">
+      <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form>
+
+    {% endif %}
+
+    {% if type == "kutubxonachi" %}
+
+    <form method="POST" class="max-w-sm mx-auto space-y-4">
+        {% csrf_token %}
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Kutubxonachi nomini kiriting</label
+        >
+        <input
+          name="name"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Kutubxonachi boshlash vahtini kiriting</label
+        >
+        <input
+          name="start"
+          type="datetime"
+          id="visitors"
+          placeholder="12:34:56"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Kutubxonachi tugash vahtini kiriting</label
+        >
+        <input
+          name="end"
+          type="datetime"
+          placeholder="12:34:56"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
       </div>
       <button class="cursor-pointer border px-2 py-1">Save</button>
     </form>

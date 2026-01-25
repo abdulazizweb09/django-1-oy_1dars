@@ -45,24 +45,37 @@ def record(request):
     return render(request,'record.html',context)
 
 def talaba(request):
-    if request=='POST':
-        Talaba.objects.create(
-            name=request.POST.get('name'),
-            age=request.POST.get('age'),
-            jins=request.POST.get('jins'),
-            deta=request.POST.get('deta'),
-            quantity=request.POST.get('quantity'),
-            tric=request.POST.get('tric')
-        )
+    # if request=='POST':
+    #     Talaba.objects.create(
+    #         name=request.POST.get('name'),
+    #         age=request.POST.get('age'),
+    #         jins=request.POST.get('jins'),
+    #         deta=request.POST.get('deta'),
+    #         quantity=request.POST.get('quantity'),
+    #         tric=request.POST.get('tric')
+    #     )
     talaba=Talaba.objects.all()
     context={
-        'talaba':talaba
+        'talabalar':talaba
     }
 
     return render(request,'talaba.html',context)
 
+def talaba_details(request,id):
+    talaba=Talaba.objects.get(id=id)
+    context={
+        'talaba':talaba
+    }
+    return render(request,'talaba_details.html',context)
+
+def kutubxonachi(request):
+    kutubxona=Kutubxonachi.objects.all()
+    context={
+        'kutubxonachi':kutubxona
+    }
+
+    return render(request,'kutubxonachi.html',context)
 def qoshish(request,type):
-    # form
    
     if type == 'muallif' and request.method=='POST':
         tric=False
@@ -80,24 +93,41 @@ def qoshish(request,type):
     elif type == 'talaba' and request.method=='POST':
         Talaba.objects.create(
             name=request.POST.get('name'),
-            janr=request.POST.get('janr'),
-            sahifa=request.POST.get('sahifa'),
-            muallif=request.POST.get('muallif'),
+            guruh=request.POST.get('guruh'),
+            kurs=request.POST.get('kurs'),
+            quantity=request.POST.get('quantity'),
         )
-        redirect('/kitob')
+        redirect('/talaba')
         
         
         # FormClass = BookForm
         # pass
-    elif type == 'record':
-        FormClass = RecordForm
-        pass
+    elif type == 'record' and request.method=='POST' :
+
+        Record.objects.create(
+            talaba_id=request.POST.get('talaba'),
+            kitob_id=request.POST.get('kitob'),
+            admin_id=request.POST.get('admin'),
+            olingan_sana=request.POST.get('olingan_sana'),
+            qaytarish_sana=request.POST.get('qaytarish_sana'),
+        )
+        redirect('/talaba')
+
+    elif type=='kutubxonachi' and request.method=='POST':
+        Kutubxonachi.objects.create(
+            name=request.POST.get('name'),
+            start=request.POST.get('start'),
+            end=request.POST.get('end')
+        )
     # else:
-        # return redirect('/')
+    #     return redirect('/')
 
     # if request=='POST':
     context={
         'type':type,
-        'muallif':Muallif.objects.all()
+        'muallif':Muallif.objects.all(),
+        'talaba':Talaba.objects.all(),
+        'kitob':Kitob.objects.all(),
+        'admin':Kutubxonachi.objects.all()
     }
     return render(request,'qoshish.html',context)

@@ -9,15 +9,15 @@
 <body class="bg-gray-100 min-h-screen flex justify-center items-center">
 
 <div class="bg-white p-6 rounded-xl shadow w-full max-w-md">
-    <h1 class="text-2xl text-center mb-4">Talabalar</h1>
+    <h1 class="text-2xl text-center mb-4">Kutubxonachilar</h1>
 
     <div>
-        <a href="/qoshish/talaba/" class="border">Talaba qoshish</a>
+        <a href="/qoshish/kutubxonachi" class="border">kutubxonachi qoshish</a>
     </div>
-    {% for talaba in talabalar %}
+    {% for k in kutubxonachi %}
     <p>
         <a href="/talaba/{{ talaba.id }}" class="text-black">
-           Talaba nomi: <span class="text-blue-500"> {{ talaba.name }}</span>
+           Admin nomi: <span class="text-blue-500"> {{ k.name }}</span>
         </a>
     </p>
     {% endfor %}
