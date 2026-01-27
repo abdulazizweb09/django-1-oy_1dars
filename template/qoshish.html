@@ -260,5 +260,137 @@
     </form>
 
     {% endif %}
+
+    {% if type == "ustoz" %}
+
+    <form method="POST" class="max-w-sm mx-auto space-y-4">
+        {% csrf_token %}
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Ustoz nomini kiriting</label
+        >
+        <input
+          name="name"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Ustoz yoshini kiriting</label
+        >
+        <input
+          name="age"
+          type="number"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <select name="jins" id="">
+        <option value="Erkak">Erkak</option>
+        <option value="Ayol">Ayol</option>
+      </select>
+      <select name="daraja" id="">
+        <option value="Bakalavr">Bakalavr</option>
+        <option value="Magistr">Magistr</option>
+      </select>
+      <select name="fan" id="" required>
+          {% for f in fan %}
+            <option value="{{f.id}}">{{f.name}}</option>
+          {% endfor %}
+      </select>
+      <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form>
+
+    {% endif %}
+
+    {% if type == "fan" %}
+
+    <form method="POST" class="max-w-sm mx-auto space-y-4">
+        {% csrf_token %}
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Fan nomini kiriting</label
+        >
+        <input
+          name="name"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >asosiy fanmi ?</label
+        >
+        <input
+          name="age"
+          type="checkbox"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+        />
+      </div>
+      <select name="yonalish" id="">
+          {% for y in yonalish %}
+            <option value="{{y.id}}">{{y.name}}</option>
+          {% endfor %}
+      </select>
+      <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form>
+
+    {% endif %}
+
+    {% if type == "yonalish" %}
+
+    <form method="POST" class="max-w-sm mx-auto space-y-4">
+        {% csrf_token %}
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >yonalish nomini kiriting</label
+        >
+        <input
+          name="name"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >yonalish activmi ?</label
+        >
+        <input
+          name="activ"
+          type="checkbox"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+        />
+      </div>
+      <!-- <select name="yonalish" id="">
+        {% for y in yonalish %}
+        <option value="{{y.id}}">{{y.name}}</option>
+        {% endfor %}
+      </select> -->
+      <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form>
+
+    {% endif %}
   </body>
 </html>

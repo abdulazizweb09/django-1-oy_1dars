@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Kutubxona.views import *
+from Universitet.views import *
 
 urlpatterns = [
     path('admin/',admin.site.urls),
@@ -29,7 +30,11 @@ urlpatterns = [
     path('kitoblar/', kitoblar, name='kitoblar'),
     path('kitob/<int:id>/', kitob, name='kitob_details'),
     path('record/',record),
+    path('record/<int:id>/',records),
     path('talaba/',talaba),
+    path('ustoz/',ustoz),
+    path('fan/',fan),
+    path('yonalish/',yonalish),
     path('kutubxonachi/',kutubxonachi),
     path('talaba/<int:id>/',talaba_details),
     path('qoshish/<str:type>/',qoshish)

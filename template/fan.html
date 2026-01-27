@@ -12,12 +12,12 @@
     <h1 class="text-2xl text-center mb-4">Talabalar</h1>
 
     <div>
-        <a href="/qoshish/talaba/" class="border">Talaba qoshish</a>
+        <a href="/qoshish/fan/" class="border">Fan qoshish</a>
     </div>
-    {% for talaba in talabalar %}
+    {% for f in fan %}
     <p>
-        <a href="/talaba/{{ talaba.id }}" class="text-black">
-           Talaba nomi: <span class="text-blue-500"> {{ talaba.name }}</span>
+        <a href="/fan/{{ f.id }}" class="text-black">
+           Talaba nomi: <span class="text-blue-500"> {{ f.name }}</span>
         </a>
     </p>
     {% endfor %}
