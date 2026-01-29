@@ -9,7 +9,7 @@
   <body>
     {% if type == "muallif" %}
 
-    <form method="POST" class="max-w-sm mx-auto space-y-4">
+    <!-- <form method="POST" class="max-w-sm mx-auto space-y-4">
         {% csrf_token %}
       <div>
         <label
@@ -39,10 +39,6 @@
           required
         />
       </div>
-      <!-- <div>
-        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Muallif jinsini kiriting</label>
-        <input name="jins" type="text" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" required />
-    </div> -->
       <select name="jins" id="">
         <option value="Erkak">Erkak</option>
         <option value="Ayol">Ayol</option>
@@ -75,14 +71,19 @@
         />
       </div>
       <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form> -->
+
+    <form method="post">
+      {%csrf_token%}
+      <table>
+        {{form.as_table}}
+      </table>
+      <button>save</button>
     </form>
-
-    {% endif %}
-
-    {% if type == "kitob" %}
+    {% endif %} {% if type == "kitob" %}
 
     <form method="POST" class="max-w-sm mx-auto space-y-4">
-        {% csrf_token %}
+      {% csrf_token %}
       <div>
         <label
           for="visitors"
@@ -112,30 +113,38 @@
         />
       </div>
       <div>
-        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Kitob sahifasini kiriting</label>
-        <input name="sahifa" type="text" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" required />
-    </div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >Kitob sahifasini kiriting</label
+        >
+        <input
+          name="sahifa"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
       <div>
         <label
           for="visitors"
           class="block mb-2.5 text-sm font-medium text-heading"
           >Muallif ni tanlang
         </label>
-       <select name="muallif" id="">
-        {% for m in muallif %}
-        <option value="{{m.name}}">{{m.name}}</option>
-        {% endfor %}
-    </select>
+        <select name="muallif" id="">
+          {% for m in muallif %}
+          <option value="{{m.name}}">{{m.name}}</option>
+          {% endfor %}
+        </select>
       </div>
       <button class="cursor-pointer border px-2 py-1">Save</button>
     </form>
 
-    {% endif %}
-
-    {% if type == "talaba" %}
+    {% endif %} {% if type == "talaba" %}
 
     <form method="POST" class="max-w-sm mx-auto space-y-4">
-        {% csrf_token %}
+      {% csrf_token %}
       <div>
         <label
           for="visitors"
@@ -165,26 +174,39 @@
         />
       </div>
       <div>
-        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">talaba kursini kiriting</label>
-        <input name="kurs" type="text" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" required />
-    </div>
+        <label
+          for="visitors"
+          class="block mb-2.5 text-sm font-medium text-heading"
+          >talaba kursini kiriting</label
+        >
+        <input
+          name="kurs"
+          type="text"
+          id="visitors"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+        />
+      </div>
       <div>
         <label
           for="visitors"
           class="block mb-2.5 text-sm font-medium text-heading"
           >kitoblar miqdorini kiriting
         </label>
-        <input type="number" name="quantity" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" required placeholder="miqdorini kiriting">
+        <input
+          type="number"
+          name="quantity"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+          required
+          placeholder="miqdorini kiriting"
+        />
       </div>
       <button class="cursor-pointer border px-2 py-1">Save</button>
     </form>
 
-    {% endif %}
+    {% endif %} {% if type == "record" %}
 
-
-    {% if type == "record" %}
-
-    <form method="POST" class="max-w-sm mx-auto space-y-4">
+    <!-- <form method="POST" class="max-w-sm mx-auto space-y-4">
         {% csrf_token %}
       <select name="talaba" id="talaba">
         {% for t in talaba %}
@@ -204,14 +226,19 @@
          <input type="date" placeholder="olingan sanani kiriting" name="olingan_sana">
          <input type="date" placeholder="qaytarilgan sanani kiriting" name="qaytarish_sana">
       <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form> -->
+
+    <form method="post">
+      {%csrf_token%}
+      <table>
+        {{form.as_table}}
+      </table>
+      <button>save</button>
     </form>
-
-    {% endif %}
-
-    {% if type == "kutubxonachi" %}
+    {% endif %} {% if type == "kutubxonachi" %}
 
     <form method="POST" class="max-w-sm mx-auto space-y-4">
-        {% csrf_token %}
+      {% csrf_token %}
       <div>
         <label
           for="visitors"
@@ -259,12 +286,10 @@
       <button class="cursor-pointer border px-2 py-1">Save</button>
     </form>
 
-    {% endif %}
+    {% endif %} {% if type == "ustoz" %}
 
-    {% if type == "ustoz" %}
-
-    <form method="POST" class="max-w-sm mx-auto space-y-4">
-        {% csrf_token %}
+    <!-- <form method="POST" class="max-w-sm mx-auto space-y-4">
+      {% csrf_token %}
       <div>
         <label
           for="visitors"
@@ -302,19 +327,24 @@
         <option value="Magistr">Magistr</option>
       </select>
       <select name="fan" id="" required>
-          {% for f in fan %}
-            <option value="{{f.id}}">{{f.name}}</option>
-          {% endfor %}
+        {% for f in fan %}
+        <option value="{{f.id}}">{{f.name}}</option>
+        {% endfor %}
       </select>
       <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form> -->
+
+    <form method="post">
+      {%csrf_token%}
+      <table>
+        {{form.as_table}}
+      </table>
+      <button>save</button>
     </form>
+    {% endif %} {% if type == "fan" %}
 
-    {% endif %}
-
-    {% if type == "fan" %}
-
-    <form method="POST" class="max-w-sm mx-auto space-y-4">
-        {% csrf_token %}
+    <!-- <form method="POST" class="max-w-sm mx-auto space-y-4">
+      {% csrf_token %}
       <div>
         <label
           for="visitors"
@@ -343,19 +373,23 @@
         />
       </div>
       <select name="yonalish" id="">
-          {% for y in yonalish %}
-            <option value="{{y.id}}">{{y.name}}</option>
-          {% endfor %}
+        {% for y in yonalish %}
+        <option value="{{y.id}}">{{y.name}}</option>
+        {% endfor %}
       </select>
       <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form> -->
+    <form method="post">
+      {%csrf_token%}
+      <table>
+        {{form.as_table}}
+      </table>
+      <button>save</button>
     </form>
+    {% endif %} {% if type == "yonalish" %}
 
-    {% endif %}
-
-    {% if type == "yonalish" %}
-
-    <form method="POST" class="max-w-sm mx-auto space-y-4">
-        {% csrf_token %}
+    <!-- <form method="POST" class="max-w-sm mx-auto space-y-4">
+      {% csrf_token %}
       <div>
         <label
           for="visitors"
@@ -383,14 +417,15 @@
           class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
         />
       </div>
-      <!-- <select name="yonalish" id="">
-        {% for y in yonalish %}
-        <option value="{{y.id}}">{{y.name}}</option>
-        {% endfor %}
-      </select> -->
       <button class="cursor-pointer border px-2 py-1">Save</button>
+    </form> -->
+    <form method="post">
+      {%csrf_token%}
+      <table>
+        {{form.as_table}}
+      </table>
+      <button>save</button>
     </form>
-
     {% endif %}
   </body>
 </html>

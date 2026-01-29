@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from .models import *
 from Universitet.models import *
+from .form import *
+from Universitet.form import *
 # Create your views here.
 def home(request):
 
@@ -86,20 +88,38 @@ def records(request,id):
 
 
 def qoshish(request,type):
-   
+    form=None
+    if type=='muallif':
+        form=KitobForm(request.POST)
+    elif type=='record':
+        form=RecordForm(request.POST)
+    elif type=='fan':
+        form=FanForm(request.POST)
+    elif type=='yonalish':
+        form=YonalishForm(request.POST)
+    elif type=='ustoz':
+        form=UstozForm(request.POST)
+
+
     if type == 'muallif' and request.method=='POST':
-        tric=False
-        if request.POST.get('tric')=='on':
-            tric=True
-        else:
-            tric=False
-        Muallif.objects.create(
-            name=request.POST.get('name'),
-            age=request.POST.get('age'),
-            jins=request.POST.get('jins'),
-            quantity=request.POST.get('quant'),
-            tric=tric,
-        )
+        # tric=False
+        # if request.POST.get('tric')=='on':
+        #     tric=True
+        # else:
+        #     tric=False
+        # Muallif.objects.create(
+        #     name=request.POST.get('name'),
+        #     age=request.POST.get('age'),
+        #     jins=request.POST.get('jins'),
+        #     quantity=request.POST.get('quant'),
+        #     tric=tric,
+        # )
+        
+        form=KitobForm(request.POST)
+        if form.is_valid() :
+            form.save()
+        return redirect('/')
+        
     elif type == 'talaba' and request.method=='POST':
         Talaba.objects.create(
             name=request.POST.get('name'),
@@ -114,13 +134,18 @@ def qoshish(request,type):
         # pass
     elif type == 'record' and request.method=='POST' :
 
-        Record.objects.create(
-            talaba_id=request.POST.get('talaba'),
-            kitob_id=request.POST.get('kitob'),
-            admin_id=request.POST.get('admin'),
-            olingan_sana=request.POST.get('olingan_sana'),
-            qaytarish_sana=request.POST.get('qaytarish_sana'),
-        )
+        # Record.objects.create(
+        #     talaba_id=request.POST.get('talaba'),
+        #     kitob_id=request.POST.get('kitob'),
+        #     admin_id=request.POST.get('admin'),
+        #     olingan_sana=request.POST.get('olingan_sana'),
+        #     qaytarish_sana=request.POST.get('qaytarish_sana'),
+        # )
+
+        form=RecordForm(request.POST)
+        if form.is_valid :
+            form.save()
+
         return redirect('/record')
 
     elif type=='kutubxonachi' and request.method=='POST':
@@ -132,40 +157,54 @@ def qoshish(request,type):
         return redirect('/kutubxonachi')
 
     elif type=='ustoz' and request.method=='POST':
-        Ustoz.objects.create(
-            name=request.POST.get('name'),
-            age=request.POST.get('age'),
-            jins=request.POST.get('jins'),
-            daraja=request.POST.get('daraja'),
-            fan_id=request.POST.get('fan'),
-        )
+        # Ustoz.objects.create(
+        #     name=request.POST.get('name'),
+        #     age=request.POST.get('age'),
+        #     jins=request.POST.get('jins'),
+        #     daraja=request.POST.get('daraja'),
+        #     fan_id=request.POST.get('fan'),
+        # )
+
+        form=UstozForm(request.POST)
+        if form.is_valid():
+            form.save()
+
         return redirect('/ustoz')
 
     elif type=='yonalish' and request.method=='POST':
-        activ=False
-        if request.POST.get('activ')=='on':
-            activ=True
-        else:
-            activ=False
-        Yonalish.objects.create(
-            name=request.POST.get('name'),
-            activ=activ
-        )
+        # activ=False
+        # if request.POST.get('activ')=='on':
+        #     activ=True
+        # else:
+        #     activ=False
+        # Yonalish.objects.create(
+        #     name=request.POST.get('name'),
+        #     activ=activ
+        # )
+
+        form=YonalishForm(request.POST)
+        if form.is_valid() :
+            form.save()
         return redirect('/yonalish')
 
     elif type=='fan' and request.method=='POST':
-        activ=False
-        if request.POST.get('activ')=='on':
-            activ=True
-        else:
-            activ=False
-        idd=request.POST.get('yonalish')
-        yonalish=Yonalish.objects.get(id=idd)
-        Fan.objects.create(
-            name=request.POST.get('name'),
-            asosiy=activ,
-            yonalish=yonalish
-        )
+        # activ=False
+        # if request.POST.get('activ')=='on':
+        #     activ=True
+        # else:
+        #     activ=False
+        # idd=request.POST.get('yonalish')
+        # yonalish=Yonalish.objects.get(id=idd)
+        # Fan.objects.create(
+        #     name=request.POST.get('name'),
+        #     asosiy=activ,
+        #     yonalish=yonalish
+        # )
+
+        form=FanForm(request.POST)
+        if form.is_valid() :
+            form.save()
+
         return redirect('/fan')
 
     # else:
@@ -181,5 +220,7 @@ def qoshish(request,type):
         'yonalish':Yonalish.objects.all(),
         'fan':Fan.objects.all(),
         'ustoz':Ustoz.objects.all(),
+        'form':form,
+
     }
     return render(request,'qoshish.html',context)
