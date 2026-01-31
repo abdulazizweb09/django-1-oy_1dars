@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -114,7 +115,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -126,3 +127,37 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Kutubxona Admin",      # brauzer tab nomi
+    "site_header": "Kutubxona Boshqaruvi", # admin panel header
+    "site_brand": "Kutubxona",            # sidebar brand
+    "welcome_sign": "Admin panelga xush kelibsiz", # bosh sahifa yozuvi
+    "show_sidebar": True,                 # sidebar ko‘rinishi
+    "navigation_expanded": True,          # sidebar ochiq bo‘lishi
+    "icons": {
+        "auth": "fas fa-users-cog",      # auth bo‘limi ikonkasi
+        "Talaba": "fas fa-user-graduate",
+        "Kitob": "fas fa-book",
+        "Muallif": "fas fa-feather-alt",
+        "Kutubxonachi": "fas fa-user-tie",
+        "Record": "fas fa-clipboard",
+    },
+}
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,      # navbar matni kichik bo‘lsin
+    "footer_small_text": True,       # footer kichik matn
+    "body_small_text": False,
+    "brand_small_text": False,
+    "accent": "primary",             # primary, secondary, info, warning, danger
+    "navbar": "navbar-dark bg-primary",
+    "footer": "footer-dark bg-dark",
+    "form_buttons": "rounded",       # form button style
+    "content_padding": "p-3",
+    "sidebar_nav_small_text": False,
+    "sidebar_nav_compact": False,
+    "sidebar_nav_child_indent": True,
+}
+
